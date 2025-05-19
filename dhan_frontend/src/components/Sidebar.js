@@ -174,7 +174,8 @@ export default function Sidebar() {
             { name: "PNL Report", path: "/pnl-report" },
             { name: "Order Modify", path: "/modify-order" },
             { name: "Order Cancel", path: "/cancel-order" },
-            { name: "Dummy Order PNL", path: "/dummy_pnl_report" }
+            { name: "Stock Chart", path: "/chart_data" },
+            { name: "Watchlist", path: "/trading_bot" },
           ]
         }
       ]
