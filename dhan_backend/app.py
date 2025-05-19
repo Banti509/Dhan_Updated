@@ -11,6 +11,8 @@ from routes.dhan_pnl import pnl_report_bp, socketio, start_pnl_stream
 from routes.dhan_login import auth_bp
 from routes.dhan_sell_order import place_sell_order_bp, process_offline_orders
 from routes.dhan_user_login import user_login_bp
+from routes.dhan_chart_data import chart_data_bp
+from routes.dhan_trading_bot import trading_bot_bp
 
 # Fix ImportError by adding project root to Python path
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
@@ -37,6 +39,9 @@ app.register_blueprint(pnl_report_bp, url_prefix="/api")
 app.register_blueprint(auth_bp, url_prefix="/api")
 app.register_blueprint(place_sell_order_bp, url_prefix="/api")
 app.register_blueprint(user_login_bp, url_prefix="/api")
+app.register_blueprint(chart_data_bp, url_prefix="/api")
+app.register_blueprint(trading_bot_bp, url_prefix="/api")
+
 
 logger.info("Flask app initialized, attempting to start PnL stream...")
 try:
@@ -51,11 +56,4 @@ if __name__ == "__main__":
     print("🚀 Starting Flask app with WebSocket support...")
     logger.info("Starting Flask-SocketIO server...")
     socketio.run(app, host="127.0.0.1", port=5000, debug=True)
-
-
-
-
-
-
-
 
